@@ -10,5 +10,16 @@ router.get('/',(req,res)=>{
 router.get('/add',(req,res)=>{
     res.send('add')
 })
+router.get('/delete/:id',(req,res)=>{
+    const id = req.params.id;
+    const index = arraySinger.findIndex(singer => singer._id == id)
+    if(index<0){
+        res.send({
+            error: 'Cannot find singer'
+        })
+    }
+    arraySinger.splice(index,1)
+    res.redirect('/')
+})
 
 module.exports = router;
