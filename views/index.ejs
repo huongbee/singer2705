@@ -14,16 +14,21 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>STT</th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Avatar</th>
                                 <th>Option(s)</th>
                             </tr>   
                         </thead>
                         <tbody>
+                            <% arraySinger.map(singer=>{%>
                             <tr> 
-                                <td>1</td>
-                                <td>User</td>
+                                <td><%=singer._id%></td>
+                                <td>
+                                    <a target="_blank" href="<%=profileLink+singer.link%>">
+                                        <%=singer.name%>
+                                    </a>
+                                </td>
                                 <td>
                                     <img src="" alt="">
                                 </td>
@@ -33,6 +38,8 @@
                                     <button style="width:100%" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
+                            <% })%>
+                            
                         </tbody>
                     </table>
                 </div>
