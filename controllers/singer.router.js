@@ -14,7 +14,7 @@ router.get('/delete/:id',(req,res)=>{
     const id = req.params.id;
     const index = arraySinger.findIndex(singer => singer._id == id)
     if(index<0){
-        res.send({
+        return res.send({
             error: 'Cannot find singer'
         })
     }
