@@ -22,5 +22,13 @@ router.get('/delete/:id',(req,res)=>{
 router.get('/add',(req,res)=>{
     res.render('add');
 })
+router.post('/add',(req,res)=>{
+    const { name, link, avatar } = req.body
+    const _id = Math.ceil(Math.random() * 1000)
+    const singer = new Singer(_id, name, link, avatar);
+    arraySinger.unshift(singer);
+    console.log(arraySinger);
+    return res.redirect('/');
+})
 
 module.exports = router;
