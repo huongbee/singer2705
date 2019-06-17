@@ -33,8 +33,17 @@ router.post('/add',(req,res)=>{
 router.get('/update/:_id',(req, res)=>{
     const _id = req.params._id;
     const singer = arraySinger.find(element => element._id == _id)
-    if(!singer) return res.send({error : 'Can not fint singer'})
+    if(!singer) return res.send({error : 'Can not find singer'})
     return res.render('update',{ singer, avatarLink })
+})
+router.post('/update',(req,res)=>{
+    const { _id, name, avatar, link } = req.body
+    const singer = arraySinger.find(e=>e._id == _id)
+    if(!singer) return res.send({error : 'Can not find singer'})
+    singer.name = name;
+    singer.link = link;
+    singer.avatar = avatar;
+    return res.redirect('/');
 })
 
 module.exports = router;

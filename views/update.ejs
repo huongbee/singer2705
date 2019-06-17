@@ -13,7 +13,8 @@
                     <h2 class="text-center">Update Singer 
                         <i><%=singer.name%></i>
                     </h2>
-                    <form method="post">
+                    <form method="post" action="/update">
+                        <input type="hidden" name="_id" value="<%=singer._id%>">
                         <div class="form-group">
                             <label>Name:</label>
                             <input type="text" name="name" placeholder="Enter name" class="form-control" value="<%=singer.name%>">
