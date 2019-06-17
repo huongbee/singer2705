@@ -30,5 +30,11 @@ router.post('/add',(req,res)=>{
     console.log(arraySinger);
     return res.redirect('/');
 })
+router.get('/update/:_id',(req, res)=>{
+    const _id = req.params._id;
+    const singer = arraySinger.find(element => element._id == _id)
+    if(!singer) return res.send({error : 'Can not fint singer'})
+    return res.render('update',{ singer, avatarLink })
+})
 
 module.exports = router;
