@@ -7,9 +7,6 @@ router.get('/',(req,res)=>{
         arraySinger, avatarLink, profileLink
     });
 })
-router.get('/add',(req,res)=>{
-    res.send('add')
-})
 router.get('/delete/:id',(req,res)=>{
     const id = req.params.id;
     const index = arraySinger.findIndex(singer => singer._id == id)
@@ -20,6 +17,10 @@ router.get('/delete/:id',(req,res)=>{
     }
     arraySinger.splice(index,1)
     res.redirect('/')
+})
+
+router.get('/add',(req,res)=>{
+    res.render('add');
 })
 
 module.exports = router;
